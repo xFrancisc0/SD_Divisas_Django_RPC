@@ -1,0 +1,26 @@
+{% extends 'divisas.html' %}
+{% load staticfiles %}
+
+{% block title %}
+Index
+{% endblock %}
+
+{% block contenido %}
+ <div class="row">
+ <div class="col-lg-12 estilo-index-titulo"><h1>Bienvenid@ al sistema de gestion de divisas!</h1></div>
+ </div>
+ <div class="row">
+ <div class="col-lg-12 estilo-index-titulo"><h4>Las funcionalidades de este sistema son las siguientes:</h4></div>
+ </div>
+<br>
+ <div class="row">
+  <div class="col-md-3 estilo-index-borde-ridge"><b>Comprar divisas</b><br>Se permitira la compra de divisas con el dinero actual que se posea.</div>
+  <div class="col-md-3 estilo-index-borde-ridge"><b>Vender divisas</b><br>Se permitira la venta de divisas que el usuario posea actualmente.</div>
+  <div class="col-md-3 estilo-index-borde-ridge"><b>Listar informacion general sobre divisas</b><br>Se permitira listar la informacion general de las divisas. Es decir: Cuales son sus conversiones y cuantas de estas son poseidas por el usuario y por el sistema.
+  </div>
+  <div class="col-md-3 estilo-index-borde-ridge"><b>Listar informacion particular de una divisa</b><br>Se permitira listar informacion particular y detallada de una divisa.
+  </div>
+</div> 
+
+
+{% endblock %}

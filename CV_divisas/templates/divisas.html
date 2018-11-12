@@ -1,0 +1,59 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.3.1.js' %}"></script>
+
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+     <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+
+    <title>{% block title %}  {% endblock %}</title>
+</head>
+<body>
+
+
+       {% block navbar %}
+    <div>
+       <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+          <ul class="nav">
+            <li class="active"><a class="estilo-nav-item" href="{% url 'index' %}"">Home</a></li>
+            <li><a class="estilo-nav-item" href="{% url 'comprar' %}">Comprar</a></li>
+            <li><a class="estilo-nav-item" href="#">Page 2</a></li>
+            <li><a class="estilo-nav-item" href="#">Page 3</a></li>
+            <li><a class="estilo-nav-item" href="{% url 'listardivisas' %}">Listar divisas</a></li>
+          </ul>
+        </div>
+      </nav> 
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+        {% endblock %}
+
+
+        <div class="container">
+        {% block contenido %}
+          
+        {% endblock %}
+        </div>
+      
+</body>
+</html>

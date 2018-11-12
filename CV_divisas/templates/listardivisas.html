@@ -1,0 +1,29 @@
+{% extends 'divisas.html' %}
+{% load staticfiles %}
+
+{% block title %}
+Listar
+
+{% endblock %}
+
+
+{% block contenido %}
+<h2>Sistema</h2>
+{% if result %}
+<table class="table table-bordered">
+  <thead>
+    <th>tipo moneda</th>
+    <th>cantidad moneda</th>
+
+    </thead>
+{% for s in result %}
+  <tr>
+    <td>{{ s.tipo_moneda }}</td>
+    <td>{{ s.cantidad_moneda }}</td>
+</tr>
+{% endfor %}
+</table>
+{% else %}
+no se encontraron resultados
+{%endif%}
+{% endblock %}

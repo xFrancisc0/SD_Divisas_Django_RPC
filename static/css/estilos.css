@@ -1,0 +1,14 @@
+.estilo-nav-item{
+	color:white;
+}
+
+.estilo-index-borde-ridge{
+	border-style: ridge;
+	text-align: justify;
+}
+
+.estilo-index-titulo{
+	margin-left:10%; 
+	margin-right:10%; 
+	text-align: justify;
+}
