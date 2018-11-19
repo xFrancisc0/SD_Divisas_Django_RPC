@@ -8,6 +8,31 @@ Listar
 
 
 {% block contenido %}
+<form class="form" method="POST">
+           {% csrf_token %}
+          <p> {{form.as_p}} <button  type="submit">Consultar</button></p>
+       </form>
+
+{% if  opcion == 1 %}
+<h2>Usuario</h2>
+{% if result %}
+<table class="table table-bordered">
+  <thead>
+    <th>tipo moneda</th>
+    <th>cantidad moneda</th>
+
+    </thead>
+{% for s in result %}
+  <tr>
+    <td>{{ s.tipo_moneda }}</td>
+    <td>{{ s.cantidad_moneda }}</td>
+</tr>
+{% endfor %}
+</table>
+{% else %}
+no se encontraron resultados del cliente
+{%endif%}
+{% elif opcion == 2%}
 <h2>Sistema</h2>
 {% if result %}
 <table class="table table-bordered">
@@ -24,6 +49,27 @@ Listar
 {% endfor %}
 </table>
 {% else %}
-no se encontraron resultados
+no se encontraron resultados en el sistema
 {%endif%}
+{% else %}
+<h2>Tasa Conversión</h2>
+{% if result %}
+<table class="table table-bordered">
+  <thead>
+    <th>tipo moneda</th>
+    <th>cantidad moneda</th>
+
+    </thead>
+{% for s in result %}
+  <tr>
+    <td>{{ s.tipo_moneda_buscada }}</td>
+      <td>{{ s.tipo_moneda_encontrada }}</td>
+    <td>{{ s.cantidad_encontrada }}</td>
+</tr>
+{% endfor %}
+</table>
+{% else %}
+no se encontraron resultados de conversion
+{%endif%}
+{% endif %}
 {% endblock %}

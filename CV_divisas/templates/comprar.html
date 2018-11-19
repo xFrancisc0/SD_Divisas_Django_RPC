@@ -8,6 +8,51 @@ Comprar
 
 {% block contenido %}
 
-Comprar va aqui
+<h2>Comprar divisas</h2>
+<div class="row">
+	<div class="col-lg-10">
+		<a onclick="return abrir_modal('{% url 'realizar_compra' %}')" class="btn btn-primary">
+			Realizar Compra
+		</a>
+	</div>
+</div>
 
+{% if result %}
+<table class="table table-bordered">
+  <thead>
+    <th>tipo moneda</th>
+    <th>cantidad moneda</th>
+
+    </thead>
+{% for s in result %}
+  <tr>
+    <td>{{ s.tipo_moneda }}</td>
+    <td>{{ s.cantidad_moneda }}</td>
+</tr>
+{% endfor %}
+</table>
+{% else %}
+no se encontraron resultados del cliente
+{%endif%}
+<div id="popup" class="modal fade" role="dialog">
+
+</div>
+<script>
+function abrir_modal(url)
+{
+	$('#popup').load(url, function()
+	{
+		$(this).modal('show');
+	});
+	return false;
+}
+
+function cerrar_modal()
+{
+	$('#popup').modal('hide');
+	return false;
+}
+
+
+</script>
 {% endblock %}
