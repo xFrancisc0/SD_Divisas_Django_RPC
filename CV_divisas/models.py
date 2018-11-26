@@ -10,18 +10,23 @@ class sistema(models.Model):
 	cantidad_moneda = models.IntegerField(db_column='cantidad_moneda', verbose_name ='cantidad_moneda')
 	def __str__(self):
 		return str(self.tipo_moneda)
+	def cantidad_s(self):
+		return int(self.cantidad_moneda)
 class usuario(models.Model):
 	id_usuario = models.IntegerField(primary_key=True)
 	tipo_moneda = models.CharField(max_length=3, blank=False, null=False, db_column='tipo_moneda', verbose_name ='tipo_moneda')
 	cantidad_moneda = models.IntegerField(db_column='cantidad_moneda', verbose_name ='cantidad_moneda')
 	def __str__(self):
-		return str(self.tipo_moneda) 
+		return str(self.tipo_moneda)
+	def cantidad_u(self):
+		return int(self.cantidad_moneda)
 class conversion(models.Model):
 	id_conversion = models.IntegerField(primary_key=True)
 	tipo_moneda_buscada = models.CharField(max_length=3, blank=False, null=False, db_column='tipo_moneda_buscada', verbose_name ='tipo_moneda_buscada')
 	tipo_moneda_encontrada = models.CharField(max_length=3, blank=False, null=False, db_column='tipo_moneda_encontrada', verbose_name ='tipo_moneda_encontrada')
-	cantidad_encontrada = models.IntegerField(db_column='cantidad_encontrada', verbose_name ='cantidad_encontrada')
-
+	cantidad_encontrada = models.FloatField(db_column='cantidad_encontrada', verbose_name ='cantidad_encontrada')
+	def valor_conversion(self):
+		return float(self.cantidad_encontrada)
 class informacion_moneda(models.Model):
 	id_moneda = models.IntegerField(primary_key=True)
 	tipo_moneda = models.CharField(max_length=3, blank=False, null=False, db_column='tipo_moneda', verbose_name ='tipo_moneda')

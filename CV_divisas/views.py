@@ -14,6 +14,7 @@ def index(request):
 
 
 def comprar(request):
+
     client = ServerProxy('http://localhost:8000/rpc/')
     resulta = client.listdiv(1)
     return render(request,'comprar.html')
@@ -33,7 +34,7 @@ def realizar_compra(request):
             int_cantidad = int(cantidad)
             str_m_pagar = str(m_pagar)
             print(str_m_comprar,int_cantidad,str_m_pagar)
-            resulta = client.div_buy(m_comprar,cantidad,m_pagar)
+            resulta = client.div_buy(str_m_comprar,int_cantidad,str_m_pagar)
             return redirect('comprar')
     else:
         form = realizar_compra_form()
@@ -58,7 +59,7 @@ def listardivisas(request):
             #Crea un objeto remoto
             client = ServerProxy('http://localhost:8000/rpc/')
             #obtiene el resultado de llamar al metodo add
-            resulta = client.div_buy(opcion)
+            resulta = client.listdiv(opcion)
             return render(request,'listardivisas.html',{'form':form,'result':resulta,'opcion':opcion })
     else:
 

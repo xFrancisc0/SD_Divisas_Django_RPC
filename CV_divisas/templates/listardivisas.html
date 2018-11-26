@@ -51,13 +51,14 @@ no se encontraron resultados del cliente
 {% else %}
 no se encontraron resultados en el sistema
 {%endif%}
-{% else %}
+{% elif opcion == 3 %}
 <h2>Tasa Conversión</h2>
 {% if result %}
 <table class="table table-bordered">
   <thead>
-    <th>tipo moneda</th>
-    <th>cantidad moneda</th>
+    <th>moneda origen</th>
+    <th>moneda a convertir</th>
+    <th>conversion</th>
 
     </thead>
 {% for s in result %}
