@@ -8,14 +8,23 @@ Listar
 
 
 {% block contenido %}
-<form class="form" method="POST">
-           {% csrf_token %}
-          <p> {{form.as_p}} <button  type="submit">Consultar</button></p>
-       </form>
+
+  <h2> Listar</h2>
+
+  <form class="form" method="POST">
+
+             {% csrf_token %}
+             {{form.as_p}} <button  type="submit" class="btn btn-primary">Consultar</button>
+
+         </form>
+
+
 
 {% if  opcion == 1 %}
-<h2>Usuario</h2>
+
 {% if result %}
+<h2>Usuario</h2>
+<p>Usted actualmente posee:</p>
 <table class="table table-bordered">
   <thead>
     <th>tipo moneda</th>
@@ -29,12 +38,13 @@ Listar
 </tr>
 {% endfor %}
 </table>
-{% else %}
-no se encontraron resultados del cliente
+
 {%endif%}
 {% elif opcion == 2%}
-<h2>Sistema</h2>
+
 {% if result %}
+<h2>Sistema</h2>
+<p>El sistema actualmente posee:</p>
 <table class="table table-bordered">
   <thead>
     <th>tipo moneda</th>
@@ -48,17 +58,17 @@ no se encontraron resultados del cliente
 </tr>
 {% endfor %}
 </table>
-{% else %}
-no se encontraron resultados en el sistema
+
 {%endif%}
 {% elif opcion == 3 %}
-<h2>Tasa Conversión</h2>
+
 {% if result %}
+<h2>Tasa Conversión</h2>
 <table class="table table-bordered">
   <thead>
     <th>moneda origen</th>
-    <th>moneda a convertir</th>
-    <th>conversion</th>
+    <th>conversion a</th>
+    <th>tasa de conversion</th>
 
     </thead>
 {% for s in result %}
@@ -69,8 +79,7 @@ no se encontraron resultados en el sistema
 </tr>
 {% endfor %}
 </table>
-{% else %}
-no se encontraron resultados de conversion
+
 {%endif%}
 {% endif %}
 {% endblock %}

@@ -17,7 +17,7 @@ def comprar(request):
 
     client = ServerProxy('http://localhost:8000/rpc/')
     resulta = client.listdiv(1)
-    return render(request,'comprar.html')
+    return render(request,'comprar.html',{'resulta':resulta})
 
 def realizar_compra(request):
 
