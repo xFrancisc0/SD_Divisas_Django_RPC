@@ -11,3 +11,8 @@ class realizar_compra_form(forms.Form):
     moneda_a_comprar = forms.ModelChoiceField(queryset=sistema.objects.all(),widget=forms.Select(attrs={'class': 'form-control'}))
     cantidad = forms.IntegerField()
     pagara_con =forms.ModelChoiceField(queryset=usuario.objects.all(),widget=forms.Select(attrs={'class': 'form-control'}))
+
+class realizar_venta_form(forms.Form):
+    moneda_a_vender = forms.ModelChoiceField(queryset=sistema.objects.all(),widget=forms.Select(attrs={'class': 'form-control'}))
+    cantidad = forms.IntegerField()
+    desea_recibir =forms.ModelChoiceField(queryset=usuario.objects.all(),widget=forms.Select(attrs={'class': 'form-control'}))

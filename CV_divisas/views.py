@@ -5,8 +5,7 @@ from django.shortcuts import render, redirect
 from xmlrpc.client import ServerProxy
 from .models import sistema, usuario, conversion, informacion_moneda
 from django import forms
-from .forms import seleccion_listar_form, realizar_compra_form
-
+from .forms import seleccion_listar_form, realizar_compra_form, realizar_venta_form
 # Create your views here.
 
 def index(request):
@@ -41,6 +40,32 @@ def realizar_compra(request):
     context = {'form': form}
     return render(request, 'realizar_compra.html', context)
 
+def vender(request):
+    client = ServerProxy('http://localhost:8000/rpc/')
+    resulta = client.listdiv(1)
+    return render(request,'vender.html',{'resulta':resulta})
+
+def realizar_venta(request):
+
+    if request.method == "POST":
+        form = realizar_venta_form(request.POST)
+
+        if form.is_valid():
+            m_venta = form.cleaned_data['moneda_a_vender']
+            cantidad = form.cleaned_data['cantidad']
+            m_recibir = form.cleaned_data['desea_recibir']
+            client = ServerProxy('http://localhost:8000/rpc/')
+            #obtiene el resultado de llamar al metodo add
+            str_m_vender = str(m_venta)
+            int_cantidad = int(cantidad)
+            str_m_recibir = str(m_recibir)
+            print(str_m_vender,int_cantidad,str_m_recibir)
+            resulta = client.div_sell(str_m_vender,int_cantidad,str_m_recibir)
+            return redirect('vender')
+    else:
+        form = realizar_venta_form()
+    context = {'form': form}
+    return render(request, 'realizar_venta.html', context)
 
 def listardivisas(request):
     #se establece el metodo de respuesta

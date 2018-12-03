@@ -18,7 +18,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <title>{% block title %}  {% endblock %}</title>
 </head>
@@ -32,12 +32,13 @@
           <ul class="nav">
             <li class="active"><a class="estilo-nav-item" href="{% url 'index' %}"">Home</a></li>
             <li><a class="estilo-nav-item" href="{% url 'comprar' %}">Comprar</a></li>
-            <li><a class="estilo-nav-item" href="#">Page 2</a></li>
-            <li><a class="estilo-nav-item" href="#">Page 3</a></li>
-            <li><a class="estilo-nav-item" href="{% url 'listardivisas' %}">Listar divisas</a></li>
+            <li><a class="estilo-nav-item" href="{% url 'vender' %}">Vender</a></li>
+              <li><a class="estilo-nav-item" href="{% url 'listardivisas' %}">Listar divisas</a></li>
+            <li><a class="estilo-nav-item" href="#">Page 4</a></li>
+
           </ul>
         </div>
-      </nav> 
+      </nav>
     </div>
 <br>
 <br>
@@ -51,9 +52,9 @@
 
         <div class="container">
         {% block contenido %}
-          
+
         {% endblock %}
         </div>
-      
+
 </body>
 </html>

@@ -14,7 +14,12 @@ Listar
   <form class="form" method="POST">
 
              {% csrf_token %}
-             {{form.as_p}} <button  type="submit" class="btn btn-primary">Consultar</button>
+             <table>
+               <th>{{form.as_p}}</th>
+               <th>  <button  type="submit" class="btn btn-primary btn-block">Consultar</button>
+</th>
+             </table>
+
 
          </form>
 
