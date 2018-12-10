@@ -1,4 +1,5 @@
 
+<!--Contenido de la ventana modal de ventas-->
 <div class="modal-dialog modal-lg">
   <div class="modal-content">
     <div class="modal-header">
@@ -9,16 +10,20 @@
               <div class="modal-body">
         <br>
         <form class="form" method="POST" action="{% url 'realizar_venta' %}">
+          <!--utilizamos el formulario realizar_venta_form contenido en forms.py-->
             {% csrf_token %}
             <div class="panel panel-default">
 					<div class="panel-body">
+            <!--desplegamos el formulario-->
 						{{ form.as_p }}
 					</div>
 				</div>
 
         <br>
+        <!--Este es un boton invisible y este boton es el que permite la realizacion de la venta. Este boton se activa una vez la validacion de los datos ha sido realizada de manera exitosa.-->
             <button style="display:none;" id="boton_vender" class="btn btn-lg btn-primary btn-block" type="submit">Vender</button>
         </form>
+        <!--Se muestra este boton vender el cual ejecuta un metodo llamado validacion cuyo parametro de entrada es vender. Este metodo se encuentra definido en static/js/scripts.js-->
          <button onclick="validacion('vender');" class="btn btn-lg btn-primary btn-block">Vender</button>
 
         <br>

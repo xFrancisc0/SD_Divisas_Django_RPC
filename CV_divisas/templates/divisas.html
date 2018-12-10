@@ -31,10 +31,14 @@
        <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container-fluid">
           <ul class="nav">
-            <li class="active"><a class="estilo-nav-item" href="{% url 'index' %}"">Home</a></li>
+            <li class="active"><a class="estilo-nav-item" href="{% url 'index' %}">Home</a></li>
+            <!--enlace al modulo de compras-->
             <li><a class="estilo-nav-item" href="{% url 'comprar' %}">Comprar</a></li>
+            <!--enlace al modulo de ventas-->
             <li><a class="estilo-nav-item" href="{% url 'vender' %}">Vender</a></li>
+            <!--enlace al modulo de listar informacion general de divisas-->
               <li><a class="estilo-nav-item" href="{% url 'listardivisas' %}">Listar divisas (general)</a></li>
+            <!--enlace al modulo de listar informacion particular de divisas-->
             <li><a class="estilo-nav-item" href="{% url 'listardivisasparticular' %}">Listar divisas (particular)</a></li>
 
           </ul>

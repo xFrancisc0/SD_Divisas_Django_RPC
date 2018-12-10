@@ -1,3 +1,4 @@
+<!--template principal de listar divisas-->
 {% extends 'divisas.html' %}
 {% load staticfiles %}
 
@@ -12,7 +13,7 @@ Listar
   <h2> Listar</h2>
 
   <form class="form" method="POST">
-
+      <!--utilizaremos el formulario seleccion_listar_form de forms.py-->
              {% csrf_token %}
              <table>
                <th>{{form.as_p}}</th>
@@ -26,7 +27,7 @@ Listar
 
 
 {% if  opcion == 1 %}
-
+<!--Si la opcion seleccionada es 1 osea el cliente lo que se muestre en la interfaz sera una adaptacion para este-->
 {% if result %}
 <h2>Usuario</h2>
 <p>Usted actualmente posee:</p>
@@ -46,7 +47,7 @@ Listar
 
 {%endif%}
 {% elif opcion == 2%}
-
+<!--Si la opcion es 2 o sea el sistema la interfaz se adaptara para el despliegue de sus datos-->
 {% if result %}
 <h2>Sistema</h2>
 <p>El sistema actualmente posee:</p>
@@ -66,7 +67,7 @@ Listar
 
 {%endif%}
 {% elif opcion == 3 %}
-
+<!--Si la opcion es 3 o conversion, la interfaz se adaptara para el despliegue de sus datos-->
 {% if result %}
 <h2>Tasa Conversión</h2>
 <table class="table table-bordered">

@@ -1,3 +1,4 @@
+<!--template principal de listar divisas particular-->
 {% extends 'divisas.html' %}
 {% load staticfiles %}
 
@@ -12,7 +13,7 @@ Listar
   <h2> Listar</h2>
 
   <form class="form" method="POST">
-
+     <!--utilizaremos el formulario seleccion_listarparticular_form de forms.py-->
              {% csrf_token %}
              <table>
                <th>{{form.as_p}}</th>
@@ -26,7 +27,7 @@ Listar
 
 
 {% if  opcion == 1 %}
-
+<!--Si la opcion seleccionada es 1 se mostrara la informacion detallada de CLP-->
 {% if result %}
 <h2>Informacion de CLP</h2>
 <p>La informacion detallada de CLP es:</p>
@@ -50,7 +51,7 @@ Listar
 
 {%endif%}
 {% elif opcion == 2%}
-
+<!--Si la opcion seleccionada es 2 se mostrara la informacion detallada de USD-->
 {% if result %}
 <h2>Informacion de USD</h2>
 <p>La informacion detallada de USD es:</p>
@@ -74,7 +75,7 @@ Listar
 
 {%endif%}
 {% elif opcion == 3 %}
-
+<!--Si la opcion seleccionada es 3 se mostrara la informacion detallada de EUR-->
 {% if result %}
 <h2>Informacion de EUR</h2>
 <p>La informacion detallada de EUR es:</p>
