@@ -16,3 +16,7 @@ class realizar_venta_form(forms.Form):
     moneda_a_vender = forms.ModelChoiceField(queryset=sistema.objects.all(),widget=forms.Select(attrs={'class': 'form-control'}))
     cantidad = forms.IntegerField()
     desea_recibir =forms.ModelChoiceField(queryset=usuario.objects.all(),widget=forms.Select(attrs={'class': 'form-control'}))
+
+class seleccion_listarparticular_form(forms.Form):
+    CHOICES=(('1','CLP'),('2','USD'),('3','EUR'))
+    elija_opcion = forms.ChoiceField(choices=CHOICES)

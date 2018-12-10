@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from xmlrpc.client import ServerProxy
 from .models import sistema, usuario, conversion, informacion_moneda
 from django import forms
-from .forms import seleccion_listar_form, realizar_compra_form, realizar_venta_form
+from .forms import seleccion_listar_form, seleccion_listarparticular_form, realizar_compra_form, realizar_venta_form
 # Create your views here.
 
 def index(request):
@@ -84,10 +84,35 @@ def listardivisas(request):
             #Crea un objeto remoto
             client = ServerProxy('http://localhost:8000/rpc/')
             #obtiene el resultado de llamar al metodo add
-            resulta = client.listdiv(opcion)
+            resulta = client.listdivparticular(opcion)
             return render(request,'listardivisas.html',{'form':form,'result':resulta,'opcion':opcion })
     else:
 
             form = seleccion_listar_form()
     arg={'form':form,'opcion':2}
     return render(request,'listardivisas.html',arg)
+
+def listardivisasparticular(request):
+    #se establece el metodo de respuesta
+    if request.method == 'POST':
+        #se crea un objeto de sumaForm
+        form = seleccion_listarparticular_form(request.POST)
+        #se verifica que el formulario sea valido
+        if form.is_valid():
+            #obtiene los datos ingresados por el formulario
+            lista = form.cleaned_data['elija_opcion']
+
+            #Transforma los datos a
+            opcion=int(lista)
+
+            #{'form':form,'mydata':data1}
+            #Crea un objeto remoto
+            client = ServerProxy('http://localhost:8000/rpc/')
+            #obtiene el resultado de llamar al metodo add
+            resulta = client.listdiv(opcion)
+            return render(request,'listardivisasparticular.html',{'form':form,'result':resulta,'opcion':opcion })
+    else:
+
+            form = seleccion_listarparticular_form()
+    arg={'form':form,'opcion':2}
+    return render(request,'listardivisasparticular.html',arg)

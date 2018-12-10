@@ -11,5 +11,6 @@ urlpatterns = [
 	url('vender/',views.vender,name='vender'),
 	url('realizar_compra/',views.realizar_compra, name='realizar_compra'),
 	url('realizar_venta/',views.realizar_venta, name='realizar_venta'),
-    url('listardivisas/', views.listardivisas, name='listardivisas')
+    url('listardivisas/', views.listardivisas, name='listardivisas'),
+    url('listardivisasparticular/', views.listardivisasparticular, name='listardivisasparticular')
 ]

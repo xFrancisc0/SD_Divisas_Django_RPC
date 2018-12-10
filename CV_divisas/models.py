@@ -31,5 +31,5 @@ class informacion_moneda(models.Model):
 	id_moneda = models.IntegerField(primary_key=True)
 	tipo_moneda = models.CharField(max_length=3, blank=False, null=False, db_column='tipo_moneda', verbose_name ='tipo_moneda')
 	nombre = models.CharField(max_length=20, blank=False, null=False, db_column='nombre', verbose_name ='nombre')
-	pais = models.IntegerField(db_column='pais', verbose_name ='pais')
+	pais = models.CharField(max_length=20, blank=False, null=False, db_column='pais', verbose_name ='pais')
 	anio_creacion = models.IntegerField(db_column='anio_creacion', verbose_name ='anio_creacion')
