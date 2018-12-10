@@ -84,7 +84,7 @@ def listardivisas(request):
             #Crea un objeto remoto
             client = ServerProxy('http://localhost:8000/rpc/')
             #obtiene el resultado de llamar al metodo add
-            resulta = client.listdivparticular(opcion)
+            resulta = client.listdiv(opcion)
             return render(request,'listardivisas.html',{'form':form,'result':resulta,'opcion':opcion })
     else:
 
@@ -109,7 +109,7 @@ def listardivisasparticular(request):
             #Crea un objeto remoto
             client = ServerProxy('http://localhost:8000/rpc/')
             #obtiene el resultado de llamar al metodo add
-            resulta = client.listdiv(opcion)
+            resulta = client.listdivparticular(opcion)
             return render(request,'listardivisasparticular.html',{'form':form,'result':resulta,'opcion':opcion })
     else:
 

@@ -17,23 +17,7 @@ Vender
 	</div>
 </div>
 <p></p>
-{% if resulta %}
-<p>Usted actualmente posee:</p>
-<table class="table table-bordered">
-  <thead>
-    <th>tipo moneda</th>
-    <th>cantidad moneda</th>
 
-    </thead>
-{% for s in resulta %}
-  <tr>
-    <td>{{ s.tipo_moneda }}</td>
-    <td>{{ s.cantidad_moneda }}</td>
-</tr>
-{% endfor %}
-</table>
-
-{%endif%}
 <div id="popup" class="modal fade" role="dialog">
 
 </div>

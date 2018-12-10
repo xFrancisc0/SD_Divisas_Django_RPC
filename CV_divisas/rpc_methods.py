@@ -3,7 +3,7 @@ from .models import sistema, usuario, conversion, informacion_moneda
 from django.db.models import F
 
 @rpc_method
-def listdiv(opcion_div):
+def listdivparticular(opcion_div):
     if(opcion_div == 1):
         lista_ob =list(informacion_moneda.objects.all().filter(id_moneda=1))
     elif(opcion_div == 2):
@@ -13,7 +13,7 @@ def listdiv(opcion_div):
     return lista_ob
 
 @rpc_method
-def listdivparticular(opcion_div):
+def listdiv(opcion_div):
     if(opcion_div == 1):
         lista_ob =list(usuario.objects.all())
     elif(opcion_div == 2):
